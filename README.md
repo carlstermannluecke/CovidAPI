@@ -24,6 +24,6 @@ in the usings section at the top of the client code.
 Make sure that a client project is marked as startup-project, since the library does not have an entry-point where it could launch.
 
 # Design decisions
-In this version of the API, it is storing the data in a volatile way. That means, when you start a client, you will always have an empty data base.
+Unlike in the previous version of the API, it is now possible to store the data in a file (bin\Debug\savedEntries.dat in the client project by default) in json-format, and to load the entries from such a file in json-format as well.
 
 Since official statistics on Covid-19 cases contain errors that are later corrected (visible in occasionally falling numbers of total infections), I decided not to include sanity checks for updates. In theory, it should not be possible for an already deceased person to be infected again, or to recover, and to my current knowledge, recovered people can also not get infected again. In practise, only after the death of a person, it might turn out that they have died of non-Covid-related causes, thus making an update from "deceased" to "recovered" necessary. This is why any updates are possible in the API.
