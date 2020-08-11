@@ -16,7 +16,10 @@ This repository consists of the code of a Visual Studio Solution, which contains
 - CovidClientText, which is a non-interactive client that performs some very simple tests on the library
 
 # How to run
-The library Covid19API1 has to be compiled first, because the clients depend on it. When it is compiled, the clients have to be referenced to it. In Visual Studio 2017, this works by opening the client project in the solution explorer, right-clicking on "References", clicking on "Browse...", then searching for the file Covid19API1\bin\Debug\netstandard2.0\Covid19API1.dll and importing it as a reference. Make sure that a client project is marked as startup-project, since the library does not have an entry-point where it could launch.
+The library Covid19API1 has to be compiled first, because the clients depend on it. When it is compiled, the clients have to be referenced to it. In Visual Studio 2017, this works by opening the client project in the solution explorer, right-clicking on "References", clicking on "Browse...", then searching for the file Covid19API1\bin\Debug\netstandard2.0\Covid19API1.dll and importing it as a reference. Then include the line
+using Covid19API1;
+in the usings section at the top of the client code.
+Make sure that a client project is marked as startup-project, since the library does not have an entry-point where it could launch.
 
 # Design decisions
 In this version of the API, it is storing the data in a volatile way. That means, when you start a client, you will always have an empty data base.
