@@ -56,10 +56,11 @@ namespace Covid19API1
         /// <returns></returns>
         public static bool UpdateEntry(DateTime time, State oldState, State newState, DateTime? updateTime)
         {
-            var allMatchingEntries = entries.FindAll(e => e.Time == time && e.State == oldState);
+            var allMatchingEntries = entries.FindAll(e => e.OriginalTime == time && e.State == oldState);
             if(allMatchingEntries.Count > 0)
             {
                 allMatchingEntries[0].State = newState;
+                allMatchingEntries[0].Time = updateTime.HasValue ? updateTime.Value : DateTime.Now.Date;
                 return true;
             }
             return false;
