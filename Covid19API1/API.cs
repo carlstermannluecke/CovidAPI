@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+//using System.Web.UI;
+//using System.Web.Script.Serialization;
 /// <summary>
 /// Backend Test Task, implemented by Carl Stermann-Lücke, August 2020
 /// </summary>
@@ -103,6 +108,15 @@ namespace Covid19API1
             List<Entry> allCasesOfSpecifiedTime = entries.FindAll(e => e.OriginalTime == timeOfFirstReport);
             List<Entry> filteredByState = currentState.HasValue ? allCasesOfSpecifiedTime.FindAll(e => e.State == currentState.Value) : allCasesOfSpecifiedTime;
             return filteredByState;
+        }
+        public static void SaveToFile(string filename = "./savedEntries.dat")
+        {
+            File.WriteAllText(filename, JsonSerializer.Serialize(entries));
+        }
+        public static void LoadFromFile(string filename = "./savedEntries.dat")
+        {
+            string jsonString = File.ReadAllText(filename);
+            entries = JsonSerializer.Deserialize<List<Entry>>(jsonString);
         }
     }
 }

@@ -96,5 +96,15 @@ namespace CovidClient1
 
             found.Text = results.Aggregate("", (text, x) => text + x + "\n");
         }
+
+        private void Load_Click(object sender, RoutedEventArgs e)
+        {
+            API.LoadFromFile();
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            API.SaveToFile();
+        }
     }
 }

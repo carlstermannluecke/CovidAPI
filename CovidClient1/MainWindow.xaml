@@ -26,10 +26,12 @@
             <RadioButton x:Name="RecoveredOld" Content="Recovered" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RecoveredOld_Checked" Margin="0,15,0,0"/>
             <RadioButton x:Name="DeceasedOld" Content="Deceased" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="DeceasedOld_Checked" Margin="0,30,0,0"/>
         </Grid>
-        <TextBlock x:Name="found" HorizontalAlignment="Left" Margin="640,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="245" Width="125"/>
+        <TextBlock x:Name="found" HorizontalAlignment="Left" Margin="640,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="245" Width="125" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         <CheckBox x:Name="filter_by_state" Content="Filter by state?" HorizontalAlignment="Left" Margin="640,345,0,0" VerticalAlignment="Top"/>
         <Label Content="Query Results" HorizontalAlignment="Left" Margin="640,59,0,0" VerticalAlignment="Top"/>
         <Button x:Name="search" Content="Search" HorizontalAlignment="Left" Margin="640,371,0,0" VerticalAlignment="Top" Width="75" Click="Search_Click"/>
+        <Button x:Name="Load" Content="Load Data from File" HorizontalAlignment="Left" Margin="162,10,0,0" VerticalAlignment="Top" Width="115" Click="Load_Click"/>
+        <Button x:Name="Save" Content="Save Data to File" HorizontalAlignment="Left" Margin="299,10,0,0" VerticalAlignment="Top" Width="105" Click="Save_Click"/>
 
     </Grid>
 </Window>

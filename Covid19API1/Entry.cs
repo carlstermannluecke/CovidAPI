@@ -9,12 +9,17 @@ namespace Covid19API1
     /// They have two timestamps: Time is the timestamp where the entry was last modified.
     /// OriginalTime is the timestamp where the entry was first created.
     /// </summary>
+    [Serializable]
     public class Entry
     {
         public long ID { get; set; }//I hope we will never need more space than 2^31 - 1, but just to be on the safe side...
         public State State { get; set; }
         public DateTime Time { get; set; }
         public DateTime OriginalTime { get; set; }
+        public Entry()
+        {
+
+        }
         public Entry(long id, State state, DateTime time)
         {
             ID = id;
